@@ -1,4 +1,4 @@
-package open.banking.contract.model;
+package open.banking.contract.entity;
 
 import java.util.Date;
 

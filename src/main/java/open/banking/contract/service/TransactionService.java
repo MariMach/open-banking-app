@@ -1,4 +1,4 @@
-package open.banking.contract.services;
+package open.banking.contract.service;
 
 import java.util.Date;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import open.banking.contract.model.Transaction;
+import open.banking.contract.entity.Transaction;
 
 
 @Service

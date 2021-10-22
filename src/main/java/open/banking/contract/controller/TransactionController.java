@@ -1,4 +1,4 @@
-package open.banking.contract.controllers;
+package open.banking.contract.controller;
 
 
 import java.util.List;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import open.banking.contract.model.Transaction;
-import open.banking.contract.services.TransactionService;
+import open.banking.contract.entity.Transaction;
+import open.banking.contract.service.TransactionService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class TransactionController {
 
 	private TransactionService transactionService;

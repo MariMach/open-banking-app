@@ -3,13 +3,12 @@ package open.banking.contract;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import open.banking.contract.services.TransactionService;
+import open.banking.contract.service.TransactionService;
 
 
-@SpringBootTest
+
 public class TransactionServiceTest {
 
 
@@ -18,4 +17,5 @@ public class TransactionServiceTest {
         TransactionService transactionService = new TransactionService();
         assertThat(transactionService.findAllByAccountNumber(1L).size()).isEqualTo(3);
     }
+    
 }
