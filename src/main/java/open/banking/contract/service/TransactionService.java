@@ -4,21 +4,30 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import open.banking.contract.entity.Transaction;
+import open.banking.contract.repository.TransactionRepository;
 
 
 @Service
 public class TransactionService {
-
 	
-	 public List<Transaction> findAllByAccountNumber(Long accountNumber) {
-		 Transaction transaction1 = new Transaction("transaction type o", new Date(), new Long(1), "USD", 123.0, "Mimi0", "");
-		 Transaction transaction2 = new Transaction("transaction type o", new Date(), new Long(1), "USD", 300.0, "Mimi1", "");
-		 Transaction transaction3 = new Transaction("transaction type o", new Date(), new Long(1), "USD", 400.0, "Mimi2", "");
-		 List<Transaction> transactions = List.of(transaction1, transaction2, transaction3);;
-		 return transactions.stream()
-	                .filter(transaction -> transaction.getAccountNumber().equals(accountNumber)).collect(Collectors.toList());
-	 }
+    private TransactionRepository repository;
+
+    @Autowired
+    public TransactionService(TransactionRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Transaction> findAllByAccountNumber(Long accountNumber) {
+        return repository.findAllByAccountNumber(accountNumber);
+    }
+
+	public List<Transaction> findAll() {
+        return repository.findAll();
+	}
+
 }
+

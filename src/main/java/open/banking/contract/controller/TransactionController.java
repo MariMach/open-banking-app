@@ -13,21 +13,27 @@ import org.springframework.web.bind.annotation.RestController;
 import open.banking.contract.entity.Transaction;
 import open.banking.contract.service.TransactionService;
 
+
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/transactions")
 public class TransactionController {
 
-	private TransactionService transactionService;
+    private TransactionService transactionService;
 	
 	@Autowired
 	public TransactionController(TransactionService transactionService) {
 		this.transactionService = transactionService;
 	}
 	
-	@GetMapping("/transactions/{accountNumber}")
-	public List<Transaction> transactionsByAccountNumber(@PathVariable("accountNumber") Long accountNumber) {
-	        return transactionService.findAllByAccountNumber(accountNumber);
+	@GetMapping("")
+	public List<Transaction> findAllTransactions() {
+	       return transactionService.findAll();
+	}
+	
+	@GetMapping("/{accountNumber}")
+	public List<Transaction> findAllByAccountNumber(@PathVariable("accountNumber") Long accountNumber) {
+	       return transactionService.findAllByAccountNumber(accountNumber);
 	}
 	
 }
